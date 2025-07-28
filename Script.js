@@ -1,23 +1,16 @@
-// Select the toggle button
-const toggleButton = document.getElementById('toggleButton');
+// sample data
+let values = [4.2, 5.1, 3.8, 4.7, 5.3];
 
-// Function to switch between light and dark modes
-function toggleMode() {
-    const body = document.body;
-    const header = document.querySelector('header');
-    
-    // Toggle the dark mode class on body and header
-    body.classList.toggle('dark-mode');
-    header.classList.toggle('dark-mode');
-    toggleButton.classList.toggle('dark-mode');
-    
-    // Update button text
-    if (body.classList.contains('dark-mode')) {
-        toggleButton.textContent = 'Switch to Light Mode';
-    } else {
-        toggleButton.textContent = 'Switch to Dark Mode';
+// Function to calculate the mean of the array
+function calculateMean(values) {
+    var sum = 0;    for (var i = 0; i < values.length; i++) {
+        sum += values[i];
     }
+    return sum / values.length;
 }
 
-// Add event listener to the toggle button
-toggleButton.addEventListener('click', toggleMode);
+// Calculate the mean
+var mean = calculateMean(values);
+var roundedMean = Math.round(mean * 100) / 100;
+var resultMessage = "Mean: " + roundedMean;
+console.log(resultMessage);
