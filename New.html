@@ -1,29 +1,60 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width =device-width, initial-scale=1.0">
-  <title>Mean Calculation Project</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Methods Mini Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .array-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .input-group {
+            margin-top: 20px;
+        }
+        .input-group input[type="text"], .input-group button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <script>
-    // sample data from the experiment
-    let values = [4.2, 5.1, 3.8, 4.7, 5.3];
-
-    // function to calculate the mean of an array
-    function calculateMean(values) {
-      var sum = 0;
-      for (var i = 0; i < values.length; i++) {
-        sum += values[i];
-      }
-      return sum / values.length;
-    }
-
-    // calculate the mean
-    var mean = calculateMean(values);
-    var roundedMean = Math.round(mean * 100) / 100;
-    var resultMessage = "Mean: " + roundedMean;
-    console.log(resultMessage);
-  </script>
+    <div class="container">
+        <h1>JavaScript Array Methods Mini Project</h1>
+        <div class="input-group">
+            <input type="text" id="elementInput" placeholder="Enter element">
+            <button onclick="addElement()">Add Element</button>
+            <button onclick="removeElement('first')">Remove First</button>
+            <button onclick="removeElement('last')">Remove Last</button>
+        </div>
+        <div class="array-container">
+            <h2>Array Elements:</h2>
+            <div id="arrayElements"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

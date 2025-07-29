@@ -1,16 +1,46 @@
-// sample data
-let values = [4.2, 5.1, 3.8, 4.7, 5.3];
+// Initialize an empty array
+let array = [];
 
-// Function to calculate the mean of the array
-function calculateMean(values) {
-    var sum = 0;    for (var i = 0; i < values.length; i++) {
-        sum += values[i];
-    }
-    return sum / values.length;
+// Function to display array elements
+function displayArray() {
+    const arrayContainer = document.getElementById('arrayElements');
+    arrayContainer.innerHTML = ''; // Clear previous content
+
+    array.forEach((element, index) => {
+        const elementDiv = document.createElement('div');
+        elementDiv.textContent = `Element ${index + 1}: ${element}`;
+        arrayContainer.appendChild(elementDiv);
+    });
 }
 
-// Calculate the mean
-var mean = calculateMean(values);
-var roundedMean = Math.round(mean * 100) / 100;
-var resultMessage = "Mean: " + roundedMean;
-console.log(resultMessage);
+// Function to add element to the end of the array
+function addElement() {
+    const elementInput = document.getElementById('elementInput').value.trim();
+    if (elementInput !== '') {
+        array.push(elementInput);
+        displayArray();
+    } else {
+        alert('Please enter a valid element.');
+    }
+}
+
+// Function to remove element from the beginning or end of the array
+function removeElement(type) {
+    if (array.length === 0) {
+        alert('Array is empty.');
+        return;
+    }
+
+    switch (type) {
+        case 'first':
+            array.shift();
+            break;
+        case 'last':
+            array.pop();
+            break;
+        default:
+            alert('Invalid operation.');
+    }
+
+    displayArray();
+}
